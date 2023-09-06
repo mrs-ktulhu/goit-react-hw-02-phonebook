@@ -2,3 +2,7 @@ ul{
     position: relative;
     margin-left: 60px; 
 }
+
+li{
+    margin-bottom: 10px;
+}
