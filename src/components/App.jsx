@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { nanoid } from 'nanoid'
 import Phonebook from "./Phonebook/Phonebook";
 import ContactList from './ContactList/ContactList';
+import Filter from "./Filter/Filter";
 
 
 export default class App extends Component {
@@ -13,6 +14,12 @@ export default class App extends Component {
       {id: 'id-3', text: 'Eden Clements', number: '645-17-79'},
       {id: 'id-4', text: 'Annie Copeland', number: '227-91-26'},
     ],
+    filter: '',
+  }
+
+  changeFilter = (e) => {
+    this.setState({filter: e.currentTarget.value})
+
   }
 
   handleAddContact = (text, number) => {
@@ -23,10 +30,19 @@ export default class App extends Component {
   
   render() {
 
+    const normalisedFilter = this.state.filter.toLowerCase();
+
+    const filterContacts = this.state.contacts.filter(contact => contact.text.toLowerCase().includes(normalisedFilter));
+
     return (
+
       <div>
-        <Phonebook onSubmit={this.handleAddContact}/>
-        <ContactList contacts={this.state.contacts}/>
+        <h1>Phonebook</h1>
+          <Phonebook onSubmit={this.handleAddContact}/>
+
+        <h2>Contacts</h2>
+          <Filter filter={this.state.filter} changeFilter={this.changeFilter}/>
+          <ContactList contacts={filterContacts}/>
       </div>
     );
   }

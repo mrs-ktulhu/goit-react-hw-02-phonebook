@@ -25,7 +25,6 @@ export default class SignupForm extends Component {
 
     return (
         <div className="container">
-            <h2>Phonebook</h2>
             <div className="input_container">
                 
                 <form onSubmit={this.handleSubmit}>
@@ -39,6 +38,7 @@ export default class SignupForm extends Component {
                       id={nanoid()}
                       value={this.state.name}
                       onChange={this.handleChange}
+                      required
                     />
                   </label>
                   <br/>
