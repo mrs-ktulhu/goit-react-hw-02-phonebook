@@ -23,6 +23,10 @@ export default class App extends Component {
   }
 
   handleAddContact = (text, number) => {
+
+    (this.state.contacts.some((contact) => contact.text === text)) ?
+    alert(`${text} is already in contacts.`):
+
     this.setState(prevState => ({
       contacts: [{ id: nanoid(), text, number }, ...prevState.contacts]
     }));
@@ -44,6 +48,7 @@ export default class App extends Component {
     return (
 
       <div>
+
         <h1>Phonebook</h1>
           <Phonebook onSubmit={this.handleAddContact}/>
 
