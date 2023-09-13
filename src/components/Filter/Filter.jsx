@@ -1,18 +1,20 @@
-import React from "react";
-// import { nanoid } from 'nanoid'
-import '../Filter/Filter.css'
+import React from 'react';
+import styled from 'styled-components';
 
-const Filter  = ({ filter, changeFilter }) => (
+const FilterWrap = styled.label`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  input {
+    margin-top: 10px;
+  }
+`;
 
-    <label>
-        Find contact by name
-        <input 
-            type="text" 
-            value={filter}
-            onChange={changeFilter}
-        />
-
-    </label>
-)
+const Filter = ({ filter, changeFilter }) => (
+  <FilterWrap>
+    Find contacts by name
+    <input type="text" value={filter} onChange={changeFilter} size="20" />
+  </FilterWrap>
+);
 
 export default Filter;
