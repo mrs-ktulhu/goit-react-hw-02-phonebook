@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
-import styled from 'styled-components';
 import ContactForm from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
 
-const Wrap = styled.div`
-  margin: 30px 0 0 30px;
-`;
 
 export default class App extends Component {
   state = {
@@ -46,14 +42,14 @@ export default class App extends Component {
     );
 
     return (
-      <Wrap>
+      <div className='Container'>
         <h1>Phonebook</h1>
         <ContactForm onSubmit={this.handleAddContact} />
 
         <h2>Contacts</h2>
         <Filter filter={this.state.filter} changeFilter={this.changeFilter} />
         <ContactList contacts={filterContacts} onDeleteContact={this.deleteContact} />
-      </Wrap>
+      </div>
     );
   }
 }

@@ -1,24 +1,6 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
-import styled from 'styled-components';
-
-const Container = styled.div`
-  display: inline-flex;
-  border: solid 1px black;
-  padding: 15px;
-  width: 300px;
-`;
-
-const FormInput = styled.label`
-  display: contents;
-  input {
-    margin: 5px 0 15px 0;
-  }
-`;
-
-const SubmitButton = styled.button`
-  cursor: pointer;
-`;
+import { Container, FormInput, SubmitButton } from './ContactForm.styled';
 
 export default class ContactForm extends Component {
   state = {
