@@ -4,7 +4,6 @@ import ContactForm from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
 
-
 export default class App extends Component {
   state = {
     contacts: [
@@ -21,11 +20,9 @@ export default class App extends Component {
   };
 
   handleAddContact = (text, number) => {
-    this.state.contacts.some(contact => contact.text === text)
-      ? alert(`${text} is already in contacts.`)
-      : this.setState(prevState => ({
-          contacts: [{ id: nanoid(), text, number }, ...prevState.contacts],
-        }));
+    this.setState(prevState => ({
+      contacts: [{ id: nanoid(), text, number }, ...prevState.contacts],
+    }));
   };
 
   deleteContact = contactId => {
@@ -42,9 +39,9 @@ export default class App extends Component {
     );
 
     return (
-      <div className='Container'>
+      <div className="Container">
         <h1>Phonebook</h1>
-        <ContactForm onSubmit={this.handleAddContact} />
+        <ContactForm contacts={this.state.contacts} onSubmit={this.handleAddContact} />
 
         <h2>Contacts</h2>
         <Filter filter={this.state.filter} changeFilter={this.changeFilter} />
