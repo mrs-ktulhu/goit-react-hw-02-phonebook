@@ -18,7 +18,7 @@ handleSubmit = e => {
 
   const { name, number } = this.state;
 
-  if (this.props.contacts.some(contact => contact.text === name&&contact.number===number)) {
+  if (this.props.contacts.some(contact => contact.text === name)) {
     alert(`${name} is already in contacts.`);
     this.setState({ name: '' }); 
   } else {
